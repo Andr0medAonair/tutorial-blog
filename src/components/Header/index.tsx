@@ -1,21 +1,14 @@
-"use client"
+"use client";
 
 import clsx from "clsx";
+import { Spinner } from "../Spinner";
 
 export function Header() {
+  const classes = clsx("bg-amber-500", " h-[500px]");
+
   return (
-    <h1
-      className={clsx(
-        "text-6xl",
-        "font-bold",
-        "text-blue-500",
-        "hover:text-blue-50",
-        "hover:bg-blue-500",
-        "transition",
-        "duration-1000"
-      )}
-    >
-      Body
-    </h1>
+    <div>
+      <Spinner className={classes} />
+    </div>
   );
 }
