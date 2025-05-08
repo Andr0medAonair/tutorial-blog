@@ -11,7 +11,7 @@ const JSON_POSTS_FILE_PATH = resolve(
   "seed",
   "posts.json"
 );
-const SIMULATE_WAIT_IN_MS = 5000;
+const SIMULATE_WAIT_IN_MS = 1;
 
 export class JsonPostRepository implements PostRepository {
   private async readFromDisk(): Promise<PostModel[]> {
@@ -20,6 +20,7 @@ export class JsonPostRepository implements PostRepository {
     const { posts } = parsedContent;
     return posts;
   }
+
   private async simulateWait() {
     if (SIMULATE_WAIT_IN_MS <= 0) return;
 
@@ -35,7 +36,7 @@ export class JsonPostRepository implements PostRepository {
 
   async findById(id: string): Promise<PostModel> {
     await this.simulateWait()
-    
+
     const posts = await this.findAll();
     const post = posts.find((post) => {
       return post.id === id;
