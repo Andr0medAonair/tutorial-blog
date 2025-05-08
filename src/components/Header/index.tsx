@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { Spinner } from "../Spinner";
+import Link from "next/link";
 
 export function Header() {
   const classes = clsx(
@@ -12,7 +13,7 @@ export function Header() {
   return (
     <header>
       <h1 className={classes}>
-        <a href="######">Blog!</a>
+        <Link href="######">Blog!</Link>
       </h1>
     </header>
   );
