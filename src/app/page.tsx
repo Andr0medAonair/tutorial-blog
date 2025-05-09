@@ -7,6 +7,7 @@ import clsx from "clsx";
 import Link from "next/link";
 import Image from "next/image";
 import { Suspense } from "react";
+import { Heading } from "@/components/Heading";
 
 export default async function HomePage() {
   const classes = clsx("text-6xl", "font-bold", "text-center", "py-8");
@@ -40,9 +41,9 @@ export default async function HomePage() {
           <time className={dateTimeClasses} dateTime="2025/05/08">
             08/05/2025 14:00
           </time>
-          <h1 className={titleClasses}>
-            <Link href="#####"></Link>
-          </h1>
+          <Heading linkUrl="#" as="h1">
+            Lorem ipsum
+          </Heading>
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste
             laboriosam aliquam beatae sit velit vero non debitis amet enim

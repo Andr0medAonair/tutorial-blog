@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import { Spinner } from "../Spinner";
 import Link from "next/link";
 
 export function Header() {
