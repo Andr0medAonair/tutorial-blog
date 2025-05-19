@@ -16,11 +16,12 @@ export async function PostsList() {
         const dateTime = post.createdAt;
         const excerpt = post.excerpt;
         const title = post.title;
+        const postLink = `/posts/${post.slug}`
 
         return (
           <div className={classesPost} key={post.id}>
             <CoverImage
-              linkProps={{ href: `/posts/${post.slug}` }}
+              linkProps={{ href: postLink }}
               imageProps={{
                 src: post.coverImageUrl,
                 width: 1200,
@@ -33,7 +34,7 @@ export async function PostsList() {
               <time className={dateTimeClasses} dateTime={dateTime}>
                 {dateTime}
               </time>
-              <Heading linkUrl="#" as="h2">
+              <Heading linkUrl={postLink} as="h2">
                 {title}
               </Heading>
               <p>{excerpt}</p>

@@ -1,7 +1,7 @@
 import { Container } from "@/components/Container";
 import { CoverImage } from "@/components/CoverImage";
 import { Header } from "@/components/Header";
-import { Heading } from "@/components/Heading";
+import { HighlightedPost } from "@/components/HighlightedPost";
 import { PostsList } from "@/components/PostsList";
 import { Spinner } from "@/components/Spinner";
 import clsx from "clsx";
@@ -13,8 +13,6 @@ export default async function HomePage() {
     "grid grid-cols-1 gap-8 mb-16",
     "sm:grid-cols-2 group"
   );
-  const dateTimeClasses = clsx("text-slate-600 block", "text-sm/tight");
-  const titleTimeDivClasses = clsx("flex flex-col gap-4 sm:justify-center");
 
   return (
     <Container>
@@ -32,21 +30,11 @@ export default async function HomePage() {
             priority: true,
           }}
         />
-        
-        <div className={titleTimeDivClasses}>
-          <time className={dateTimeClasses} dateTime="2025-04-20">
-            20/04/2025 10:00
-          </time>
-          <Heading linkUrl="#" as="h1">
-            Rerum, vel ex? Impedit ullam harum blanditiis
-          </Heading>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. In velit
-            dolorem est dolor porro, doloribus neque, quidem mollitia
-            doloremque, ad perspiciatis fugiat. Rerum, vel ex? Impedit ullam
-            harum blanditiis mollitia?
-          </p>
-        </div>
+
+        <HighlightedPost
+          title="Rerum, vel ex? Impedit ullam harum blanditiis"
+          content="Lorem ipsum dolor sit amet consectetur adipisicing elit. In velit dolorem est dolor porro, doloribus neque, quidem mollitia doloremque, ad perspiciatis fugiat. Rerum, vel ex? Impedit ullam harum blanditiis mollitia?"
+        />
       </section>
       <Suspense fallback={<Spinner />}>
         <PostsList />
