@@ -1,14 +1,11 @@
 import { Container } from "@/components/Container";
+import { CoverImage } from "@/components/CoverImage";
 import { Header } from "@/components/Header";
+import { Heading } from "@/components/Heading";
 import { PostsList } from "@/components/PostsList";
 import { Spinner } from "@/components/Spinner";
-import { postRepository } from "@/repositories/post/json-post-repository";
 import clsx from "clsx";
-import Link from "next/link";
-import Image from "next/image";
 import { Suspense } from "react";
-import { Heading } from "@/components/Heading";
-import { CoverImage } from "@/components/CoverImage";
 
 export default async function HomePage() {
   const classes = clsx("text-6xl", "font-bold", "text-center", "py-8");
@@ -24,27 +21,30 @@ export default async function HomePage() {
       <Header />
       <section className={columnClasses}>
         <CoverImage
-          linkProps={{ href: "#####" }}
+          linkProps={{
+            href: "/post/asdfasdf",
+          }}
           imageProps={{
-            src: "/images/bryen_0.png",
             width: 1200,
             height: 720,
-            alt: "Woman in a computer using microphone and headset",
+            src: "/images/bryen_9.png",
+            alt: "Alt da imagem",
             priority: true,
           }}
         />
+        
         <div className={titleTimeDivClasses}>
-          <time className={dateTimeClasses} dateTime="2025/05/08">
-            08/05/2025 14:00
+          <time className={dateTimeClasses} dateTime="2025-04-20">
+            20/04/2025 10:00
           </time>
           <Heading linkUrl="#" as="h1">
-            Lorem ipsum
+            Rerum, vel ex? Impedit ullam harum blanditiis
           </Heading>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste
-            laboriosam aliquam beatae sit velit vero non debitis amet enim
-            reprehenderit? Incidunt nesciunt itaque dolore qui! Autem minus
-            quidem doloribus maxime.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. In velit
+            dolorem est dolor porro, doloribus neque, quidem mollitia
+            doloremque, ad perspiciatis fugiat. Rerum, vel ex? Impedit ullam
+            harum blanditiis mollitia?
           </p>
         </div>
       </section>

@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import Link from "next/link";
+import { Url, UrlObject } from "url";
 
 type HeadingProps = {
   children: React.ReactNode;
@@ -9,14 +10,15 @@ type HeadingProps = {
 
 export function Heading({ children, linkUrl, as: Tag = "h2" }: HeadingProps) {
   const classesMap = {
-    h1: "text-2xl/tight sm:text-4xl",
-    h2: "text-2xl/tight sm:text-3xl",
+    h1: "text-2xl/tight sm:text-4xl font-extrabold",
+    h2: "text-2xl/tight font-bold",
   }
-  const commonClasses = "font-extrabold"
+  const pointerClasses = "hover:text-slate-600 transition"
+  const commonClasses = ""
 
   return (
     <Tag className={clsx(classesMap[Tag], commonClasses)}>
-      <Link href={linkUrl}>{children}</Link>
+      <Link className={pointerClasses} href={linkUrl}>{children}</Link>
     </Tag>
   );
 }
