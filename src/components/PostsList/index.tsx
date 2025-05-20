@@ -2,6 +2,7 @@ import { postRepository } from "@/repositories/post/json-post-repository";
 import { CoverImage } from "../CoverImage";
 import clsx from "clsx";
 import { Heading } from "../Heading";
+import { formatDatetime, formatRelativeDate } from "@/utils/datetime-utils";
 
 export async function PostsList() {
   const posts = await postRepository.findAll();
@@ -16,7 +17,7 @@ export async function PostsList() {
         const dateTime = post.createdAt;
         const excerpt = post.excerpt;
         const title = post.title;
-        const postLink = `/posts/${post.slug}`
+        const postLink = `/posts/${post.slug}`;
 
         return (
           <div className={classesPost} key={post.id}>
@@ -31,8 +32,12 @@ export async function PostsList() {
             />
 
             <div className={titleTimeDivClasses}>
-              <time className={dateTimeClasses} dateTime={dateTime}>
-                {dateTime}
+              <time
+                className={dateTimeClasses}
+                dateTime={dateTime}
+                title={formatRelativeDate(dateTime)}
+              >
+                {formatDatetime(dateTime)}
               </time>
               <Heading linkUrl={postLink} as="h2">
                 {title}

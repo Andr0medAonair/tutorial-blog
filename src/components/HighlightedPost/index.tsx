@@ -1,9 +1,10 @@
 import React from "react";
 import clsx from "clsx";
 import { Heading } from "../Heading";
+import { formatRelativeDate, formatDatetime } from "@/utils/datetime-utils";
 
 interface HighlightedPostProps {
-  date?: string;
+  date: string;
   title: string;
   content: string;
 }
@@ -18,8 +19,12 @@ export async function HighlightedPost({
 
   return (
     <div className={titleTimeDivClasses}>
-      <time className={dateTimeClasses} dateTime={date}>
-        {date.split("-").reverse().join("/")} 10:00
+      <time
+        className={dateTimeClasses}
+        dateTime={date}
+        title={formatRelativeDate(date)}
+      >
+        {formatDatetime(date)}
       </time>
       <Heading linkUrl="#" as="h1">
         {title}

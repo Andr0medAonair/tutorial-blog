@@ -21,6 +21,7 @@ export function PostFeatured() {
       />
 
       <HighlightedPost
+        date="2025-04-20"
         title="Rerum, vel ex? Impedit ullam harum blanditiis"
         content="Lorem ipsum dolor sit amet consectetur adipisicing elit. In velit dolorem est dolor porro, doloribus neque, quidem mollitia doloremque, ad perspiciatis fugiat. Rerum, vel ex? Impedit ullam harum blanditiis mollitia?"
       />
