@@ -3,13 +3,12 @@ import { CoverImage } from "../CoverImage";
 import clsx from "clsx";
 import { Heading } from "../Heading";
 import { formatDatetime, formatRelativeDate } from "@/utils/datetime-utils";
+import { PostSummary } from "../PostSummary";
 
 export async function PostsList() {
   const posts = await postRepository.findAll();
   const classes = clsx("grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3");
   const classesPost = clsx("flex flex-col gap-4 group");
-  const dateTimeClasses = clsx("text-slate-600 block", "text-sm/tight");
-  const titleTimeDivClasses = clsx("flex flex-col gap-4 sm:justify-center");
 
   return (
     <div className={classes}>
@@ -31,19 +30,13 @@ export async function PostsList() {
               }}
             />
 
-            <div className={titleTimeDivClasses}>
-              <time
-                className={dateTimeClasses}
-                dateTime={dateTime}
-                title={formatRelativeDate(dateTime)}
-              >
-                {formatDatetime(dateTime)}
-              </time>
-              <Heading linkUrl={postLink} as="h2">
-                {title}
-              </Heading>
-              <p>{excerpt}</p>
-            </div>
+            <PostSummary
+              postHeading="h2"
+              postLink={postLink}
+              createdAt={dateTime}
+              title={title}
+              excerpt={excerpt}
+            />
           </div>
         );
       })}
